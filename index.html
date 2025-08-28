@@ -14,7 +14,7 @@
         <img src="logo.jpg"alt="college logo"/>
         <div class="container">
             <h1 class="university-name">World Bright College</h1>
-            <p class="tagline">We Strive For Sustainable Development!</p>
+            <p class="tagline">We Strive For Sustainable Community Development!</p>
             <div class="sign-in-section">
                
                 <div class="contact-info">
@@ -96,11 +96,60 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <section class="welcome-section">
+             <section class="welcome-section">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <div class="carousel-item">
+                        <img src="pres.jpg"/>
+                        <div class="image-overlay">
+                            <h3>World Bright College</h3>
+                            <p>President Dr. Tessema Abera</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="studying.jpg" alt="Students Studying">
+                        <div class="image-overlay">
+                            <h3>Academic Excellence</h3>
+                            <p>We Strive For Suistanble Community Development</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="gc.jpg"alt="Graduation Ceremony">
+                        <div class="image-overlay">
+                            <h3>Graduation Cermony</h3>
+                            <p>Preparing students for meaningful contributions to society</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="students.jpg" alt="Campus Life">
+                        <div class="image-overlay">
+                            <h3>Vibrant Community</h3>
+                            <p>Join our diverse academic community</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                </div>
+            </div>
+            
+            <div class="welcome-content">
                 <h2>Welcome to World Bright College</h2>
-                <p>Established with a vision to empower the youth through quality education, World bright college is committed to academic excellence, innovation, and community engagement. Our diverse programs and dedicated faculty ensure that students are well-prepared to make meaningful contributions to society.</p>
-                <p>Join our vibrant academic community and let your light shine in the society!</p>
-            </section>
+                <p>Established with a vision to empower the youth through quality education, World Bright College is committed to academic excellence, innovation, and community engagement. Our diverse programs and dedicated faculty ensure that students are well-prepared to make meaningful contributions to society.</p>
+                
+            </div>
+        </section>
 
             <section class="features">
                 <div class="feature-card">
@@ -266,6 +315,80 @@
                     hamburger.querySelector('i').classList.add('fa-bars');
                 }
             });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const slide = document.querySelector('.carousel-slide');
+            const items = document.querySelectorAll('.carousel-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            let autoSlideInterval;
+            
+            // Function to update carousel position
+            function updateCarousel() {
+                slide.style.transform = `translateX(-${currentIndex * 25}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            // Function to move to next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }
+            
+            // Function to move to previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
+            }
+            
+            // Set up auto-sliding
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            // Stop auto-sliding
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+            
+            // Event listeners for buttons
+            nextBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                nextSlide();
+                startAutoSlide();
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                stopAutoSlide();
+                prevSlide();
+                startAutoSlide();
+            });
+            
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopAutoSlide();
+                    currentIndex = index;
+                    updateCarousel();
+                    startAutoSlide();
+                });
+            });
+            
+            // Start auto-sliding on load
+            startAutoSlide();
+            
+            // Pause auto-sliding when user hovers over carousel
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+            carouselContainer.addEventListener('mouseleave', startAutoSlide);
         });
     </script>
 </body>
