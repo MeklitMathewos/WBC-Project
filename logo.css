@@ -1,0 +1,74 @@
+.logo-container {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .logo-line1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a2a6c;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+        
+        .logo-line2 {
+            font-size: 14px;
+            color: #b21f1f;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            max-width: 200px;
+        }
+        
+        .logo-line3 {
+            font-size: 16px;
+            color: #1a2a6c;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        
+        .header-text {
+            flex-grow: 1;
+            text-align: left;
+        }
+        
+        .university-name {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-style: italic;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        header img {
+    max-width: 150px;   /* maximum size */
+    width: 100%;        /* shrink when screen is small */
+    height: auto;       /* keep proportions */
+    border-radius: 50%; /* make it round */
+    display: block;
+    margin-bottom: -160px;     /* avoid inline spacing issues */
+}
+
+/* ✅ Responsive adjustments */
+@media (max-width: 600px) {
+    header img {
+        max-width: 100px;  /* smaller logo on phones */
+        margin: 0 auto;    /* center it */
+    }
+}
