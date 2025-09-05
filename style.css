@@ -177,9 +177,13 @@
         }
         
         .welcome-section p {
-            max-width: 800px;
+            
+            margin: 0 auto 25px;
+           
+            max-width: 100%;
             margin: 0 auto 25px;
             font-size: 1.1rem;
+           text-align: justify;
         }
         
         .features {
