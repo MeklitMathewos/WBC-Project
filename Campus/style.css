@@ -175,6 +175,11 @@
             color: #2c3e50;
             margin-bottom: 20px;
         }
+        .welcome-section h3 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
         
         .welcome-section p {
             max-width: 800px;
@@ -202,7 +207,7 @@
         }
         
         .feature-img {
-            height: 50px;
+            height: 30px;
             background-color: #3498db;
             display: flex;
             align-items: center;
@@ -247,7 +252,7 @@
         }
         
         .news-img {
-            height: 180px;
+            height: 30px;
             background-color: #7f8c8d;
             display: flex;
             align-items: center;
